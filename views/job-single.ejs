@@ -1,0 +1,119 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recruite Pro</title>
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="/animate/animate.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="/owl-carousel/css/owl.carousel.css" rel="stylesheet">
+    <link href="/owl-carousel/css/owl.theme.css" rel="stylesheet">
+    <!-- magnific Css -->
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    </head>
+
+    <body cz-shortcut-listen="true">
+    <!-- Loader -->
+    <div id="dvLoading" style="display: none;"></div>
+    
+    <%- include('components/header')%>
+
+    <!-- breadcrumb Wrapper Start -->
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="banner-title">
+          <h2>الوظيفه الحاليه</h2>
+          <div class="line"> <span></span></div>
+        </div>
+        <ul class="inner-breadcrumb">
+          <li><a href="/current-jobs">الوظائف المتاحه</a></li>
+          <li><%= job.title %></li>
+        </ul>
+      </div>
+    </div>
+    <!-- breadcrumb Wrapper End -->
+
+    <div class="inner-page-wrapper single-jobs-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <section>
+              <div class="section-header">
+                <h2><%= job.title %></h2>
+                <p><%= job.description %></p>
+              </div>
+              <div class="section-details">
+                <h4>تفاصيل العمل:</h4>
+                <p><%= job.f_description %></p>
+                
+              </div>
+              <div class="section-details">
+                <h4>المهارات المطلوبه : </h4>
+
+                <% job.filter.map((e,i) => { %>
+                  <a href="/current-search/<%= e %>"><%= e %></a> ,
+                <% }) %>
+              </div>
+              <a href="/apply-job/<%= job._id %>" class="btn-one">التقدم للوظيفه</a>
+            </section>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <aside>
+              <div class="aside-header">
+                <h4>اكثر</h4>
+              </div>
+              <div class="aside-body">
+                <div class="aside-group">
+                  <label>المكان :</label>
+                  <sapn> <%= job.location %>  </sapn>
+                </div>
+                <div class="aside-group">
+                  <label>السعر :</label>
+                  <sapn> <%= job.salary %> ج  </sapn>
+                </div>
+                <div class="aside-group">
+                  <label>التاريخ :</label>
+                  <sapn> <%= job.date %>  </sapn>
+                </div>
+                <div class="aside-group">
+                  <label>مقدم للعمل :</label>
+                  <sapn> 10 اشخاص  </sapn>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%- include('components/footer')%>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="/jquery/jquery-3.1.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="/bootstrap/js/bootstrap.min.js"></script> 
+    <script src="/jquery/plugins.js"></script> 
+    <script src="/jquery/jquery.animateNumber.min.js"></script> 
+    <script src="/jquery/jquery.magnific-popup.min.js"></script> 
+    <script src="/owl-carousel/js/owl.carousel.js"></script> 
+    <script src="/wow/wow.min.js"></script> 
+    <script src="/js/custom.js"></script><a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-83282272-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-83282272-3');
+    </script>
+    
+    </body></html>

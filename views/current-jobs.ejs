@@ -1,0 +1,157 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Recruite Pro</title>
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="/animate/animate.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="/owl-carousel/css/owl.carousel.css" rel="stylesheet">
+    <link href="/owl-carousel/css/owl.theme.css" rel="stylesheet">
+    <!-- magnific Css -->
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body cz-shortcut-listen="true">
+    <!-- Loader -->
+    <div id="dvLoading" style="display: none;"></div>
+
+    <%- include('components/header')%>
+
+    <!-- breadcrumb Wrapper Start -->
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="banner-title">
+          <h2>الوظائف المتاحه</h2>
+          <div class="line"> <span></span></div>
+        </div>
+        <ul class="inner-breadcrumb">
+          <li><a href="/">الرئيسيه</a></li>
+          <li>الوظائف المتاحه</li>
+        </ul>
+      </div>
+    </div>
+    <!-- breadcrumb Wrapper End --> 
+    <!-- Inner page Wrapper Start -->
+    <div class="inner-page-wrapper latest-jobs-wrapper">
+      <div class="container">
+        <div class="col-md-4 col-xs-12 col-md-push-8">
+          <aside>
+            <a href="/current-search" class="aside-header">
+                <h4>الكل</h4>
+            </a>
+            <div class="aside-session" data-show="one">
+              <div class="header">
+                <h4></span>حاسب الي</h4>
+              </div>
+              <ul class="list-unstyled one">
+                <% categories.map((e,i) => { %>
+                  <% if(e.category === "حاسب"){ %>
+                    <li><a href="/current-search/<%= e.name %>"><%= e.name %></a></li>
+                  <% } %> 
+                <% }) %>
+              </ul>
+            </div>
+            <div class="aside-session" data-show="two">
+              <div class="header">
+                <h4>سياحه</h4>
+              </div>
+              <ul class="list-unstyled two">
+                <% categories.map((e,i) => { %>
+                  <% if(e.category === "سياحه"){ %>
+                    <li><a href="/current-search/<%= e.name %>"><%= e.name %></a></li>
+                  <% } %> 
+                <% }) %>
+              </ul>
+            </div>
+            <div class="aside-session" data-show="three">
+              <div class="header">
+                <h4>اداب</h4>
+              </div>
+              <ul class="list-unstyled three">
+                <% categories.map((e,i) => { %>
+                  <% if(e.category === "اداب"){ %>
+                    <li><a href="/current-search/<%= e.name %>"><%= e.name %></a></li>
+                  <% } %> 
+                <% }) %>
+              </ul>
+            </div>
+            <div class="aside-session" data-show="four">
+              <div class="header">
+                <h4>هندسه</h4>
+              </div>
+              <ul class="list-unstyled four">
+                <% categories.map((e,i) => { %>
+                  <% if(e.category === "هندسه"){ %>
+                    <li><a href="/current-search/<%= e.name %>"><%= e.name %></a></li>
+                  <% } %> 
+                <% }) %>
+              </ul>
+            </div>
+
+          </aside>
+        </div>
+        <div class="col-md-8 col-xs-12 col-md-pull-4">
+          <% jobs.map((e,i) => { %>
+            <div class="single-jobs">
+              <div class="job-heading">
+                <h3><a href="/job-single/<%= e._id%>"><%= e.title%></a></h3>
+                <p><%= e.description%></p>
+              </div>
+              <div class="job-details">
+                <div class="details-group">
+                  <span class="fa fa-calendar" aria-hidden="true"></span>
+                  <h3><%= e.date%></h3>
+                </div>
+                <div class="details-group">
+                  <span class="fa fa-map-marker" aria-hidden="true"></span>
+                  <h3><%= e.location%></h3>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+          <div class="text-center">
+            <a href="/current-jobs" class="btn-one">عرض المزيد</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Inner page Wrapper End -->
+
+    <%- include('components/footer')%> 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="/jquery/jquery-3.1.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="/bootstrap/js/bootstrap.min.js"></script> 
+    <script src="/jquery/plugins.js"></script> 
+    <script src="/jquery/jquery.animateNumber.min.js"></script> 
+    <script src="/jquery/jquery.magnific-popup.min.js"></script> 
+    <script src="/owl-carousel/js/owl.carousel.js"></script> 
+    <script src="/wow/wow.min.js"></script> 
+    <script src="/js/custom.js"></script><a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-83282272-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-83282272-3');
+    </script>
+    
+    </body></html>

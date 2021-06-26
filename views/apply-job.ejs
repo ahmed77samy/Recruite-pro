@@ -1,0 +1,104 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Recruite Pro</title>
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="/animate/animate.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="/owl-carousel/css/owl.carousel.css" rel="stylesheet">
+    <link href="/owl-carousel/css/owl.theme.css" rel="stylesheet">
+    <!-- magnific Css -->
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body cz-shortcut-listen="true">
+    <!-- Loader -->
+    <div id="dvLoading" style="display: none;"></div>
+    
+    <%- include('components/header')%>
+
+    <!-- breadcrumb Wrapper Start -->
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="banner-title">
+          <h2>تقدم للوظيفه</h2>
+          <div class="line"> <span></span></div>
+        </div>
+        <ul class="inner-breadcrumb">
+          <li><a href="/job-single/<%= job.id %>"><%= job.title %></a></li>
+          <li>تقدم للوظيفه</li>
+        </ul>
+      </div>
+    </div>
+    <!-- breadcrumb Wrapper End --> 
+    <!-- Inner page Wrapper Start -->
+    <div class="inner-page-wrapper apply-jobs-wrapper">
+      <div class="container">
+        <% if(message === 'تم التقديم بنجاح' ) { %> 
+          <div class="alert alert-success" role="alert"><%= message %></div>
+        <% } else if(message !== 'تم التقديم بنجاح' && message !== '' ) { %>
+          <div class="alert alert-danger" role="alert"><%= message %></div>
+        <% } %>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 col-xs-offset-0">
+            <div class="row">
+              <form method="POST" action="/apply-job/<%= job.id %>" enctype="multipart/form-data">
+                <div class="col-sm-6">
+                  <input class="form-control" id="name" placeholder="الاسم" required="" type="text" name="name">
+                  <input class="form-control" id="phone" placeholder="الهاتف المحمول" required="" type="text" name="phone">
+                  <input class="form-control" id="email" placeholder="الايميل" required="" type="email" name="email">
+                </div>
+                <div class="col-sm-6">
+                  <textarea class="form-control" id="comment" placeholder="اترك تعليق..." required="" name="comment"></textarea>
+                  <span class="btn btn-file"> السيره الذاتيه
+                  <input type="file" required="" name="cv">
+                  </span> </div>
+                  <div class="col-md-12">
+                    <button type="submit" class="btn-one">تاكيد</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Inner page Wrapper End --> 
+
+    <%- include('components/footer')%>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="/jquery/jquery-3.1.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="/bootstrap/js/bootstrap.min.js"></script> 
+    <script src="/jquery/plugins.js"></script> 
+    <script src="/jquery/jquery.animateNumber.min.js"></script> 
+    <script src="/jquery/jquery.magnific-popup.min.js"></script> 
+    <script src="/owl-carousel/js/owl.carousel.js"></script> 
+    <script src="/wow/wow.min.js"></script> 
+    <script src="/js/custom.js"></script><a id="scrollUp" href="#top" style="display: none; position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-83282272-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-83282272-3');
+    </script>
+    
+    </body></html>
