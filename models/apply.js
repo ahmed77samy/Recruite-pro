@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const DB_URL = "mongodb://localhost:27017/app"
+const DB_URL = "mongodb+srv://admin:PASSword@cluster0.sityi.mongodb.net/app?retryWrites=true&w=majority"
 
 let DB_CONFIG = { useUnifiedTopology: true, useNewUrlParser: true };
 
